@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-left: 30px;
+    background-image: linear-gradient(red, orange);
+}
+
+/*fruits.................................................*/
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.fruits {
+    max-width: 300px;
+}
+
+.fruit {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: antiquewhite 2px solid;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+    justify-content: right;
+}
+
+.fruit button {
+    margin: 0 10px;
+    padding: 10px;
+}
+
+#resetButton, #submitButton {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100px;
+    background-color: #FCD53F;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    color: black;
+    text-align: center;
+}
+
+/*form......................................................*/
+
+
+form {
+    margin-top: 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+label {
+    margin-top: 20px;
+}
+
+input {
+    padding: 5px;
+    margin-left: 10px;
+    width: 300px;
+}
+
+#age {
+    width: 45px;
+    text-align: center;
+}
+
+#commentsId {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#frequency {
+    margin-left: 10px;
+}
+
+#radioButtons {
+    margin-top: 10px;
+
+}
+
+#radioButtons input {
+    width: 20px;
+}
+
+#conditions {
+    width: 20px;
+}
