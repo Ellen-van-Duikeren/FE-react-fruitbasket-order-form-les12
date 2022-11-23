@@ -1,19 +1,19 @@
 import React from 'react';
 
-function Counter({fruitName, fruitValue, emoji, isDisabled, increment, decrement}) {
+function Fruit({ emoji, fruitName, type, decrement,isDisabled, fruitValue, increment}) {
     return (
         <div className="fruit">
             <p>{emoji}</p>
-            <h2>{fruitName}</h2>
+            <h3>{fruitName}</h3>
             <button
-                type="type"
+                type={type}
                 onClick={decrement}
                 disabled={isDisabled}
             >-
             </button>
             {fruitValue}
             <button
-                type="button"
+                type={type}
                 onClick={increment}
             >+
             </button>
@@ -21,4 +21,4 @@ function Counter({fruitName, fruitValue, emoji, isDisabled, increment, decrement
     );
 }
 
-export default Counter;
+export default Fruit;

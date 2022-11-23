@@ -4,8 +4,9 @@
 
 import React, {useState} from 'react';
 import './App.css';
-import Counter from "./components/Counter";
+import Fruit from "./components/Fruit";
 import Button from "./components/Button";
+import Label from "./components/LabelInput";
 
 function App() {
 
@@ -52,94 +53,95 @@ function App() {
 
     return (
         <>
-            <div className="fruits">
             <h1>Fruitmand bezorgservice</h1>
-            <article>
-                <Counter
-                    emoji="🍓"
-                    fruitName="Strawberries"
-                    type="button"
-                    fruitValue={strawberry}
-                    isDisabled={strawberry === 0}
-                    decrement={() => setStrawberry(strawberry => strawberry - 1)}
-                    increment={() => setStrawberry(strawberry => strawberry + 1)}
-                />
-            </article>
+            <div className="total">
+                <div className="fruits">
+                    <h2>Jouw fruit</h2>
+                    <article>
+                        <Fruit
+                            emoji="🍓"
+                            fruitName="Strawberries"
+                            type="button"
+                            fruitValue={strawberry}
+                            isDisabled={strawberry === 0}
+                            decrement={() => setStrawberry(strawberry => strawberry - 1)}
+                            increment={() => setStrawberry(strawberry => strawberry + 1)}
+                        />
+                    </article>
 
-            <article>
-                <Counter
-                    emoji="🍌"
-                    fruitName="Bananas"
-                    type="button"
-                    fruitValue={banana}
-                    isDisabled={banana === 0}
-                    decrement={() => setBanana(banana => banana - 1)}
-                    increment={() => setBanana(banana => banana + 1)}
-                />
-            </article>
+                    <article>
 
-            <article>
-                <Counter
-                    emoji="🥝"
-                    fruitName="Kiwis"
-                    type="button"
-                    fruitValue={kiwi}
-                    isDisabled={kiwi === 0}
-                    decrement={() => setKiwi(kiwi => kiwi - 1)}
-                    increment={() => setKiwi(kiwi => kiwi + 1)}
-                />
-            </article>
+                        <Fruit
+                            emoji="🍌"
+                            fruitName="Bananas"
+                            type="button"
+                            fruitValue={banana}
+                            isDisabled={banana === 0}
+                            decrement={() => setBanana(banana => banana - 1)}
+                            increment={() => setBanana(banana => banana + 1)}
+                        />
+                    </article>
 
-            <article>
-                <Counter
-                    emoji="🍎"
-                    fruitName="Apples"
-                    type="button"
-                    fruitValue={apple}
-                    isDisabled={apple === 0}
-                    decrement={() => setApple(apple => apple - 1)}
-                    increment={() => setApple(apple => apple + 1)}
-                />
-            </article>
+                    <article>
+                        <Fruit
+                            emoji="🥝"
+                            fruitName="Kiwis"
+                            type="button"
+                            fruitValue={kiwi}
+                            isDisabled={kiwi === 0}
+                            decrement={() => setKiwi(kiwi => kiwi - 1)}
+                            increment={() => setKiwi(kiwi => kiwi + 1)}
+                        />
+                    </article>
 
-            <Button
-                id="resetButton"
-                type="button"
-                handleClick={() => reset()}
-            >Reset</Button>
+                    <article>
+                        <Fruit
+                            emoji="🍎"
+                            fruitName="Apples"
+                            type="button"
+                            fruitValue={apple}
+                            isDisabled={apple === 0}
+                            decrement={() => setApple(apple => apple - 1)}
+                            increment={() => setApple(apple => apple + 1)}
+                        />
+                    </article>
 
-            </div>
+                    <Button
+                        id="resetButton"
+                        type="button"
+                        handleClick={() => reset()}
+                    >Reset</Button>
+                </div>
 
-            {/*form.................................*/}
+                {/*form.................................*/}
 
-            <form onSubmit={handleSubmit}>
-                <h2>Jouw gegevens
-                </h2>
-                <label htmlFor="firstName">
-                    Voornaam
-                    <input
+                <form onSubmit={handleSubmit}>
+
+                    <Label
+                        htmlFor="firstName"
                         type="text"
                         name="firstName"
                         id="firstName"
                         value={formState.firstName}
                         onChange={handleFormChange}
-                    />
-                </label>
+                    >
+                        Voornaam
+                    </Label>
 
-                <label htmlFor="lastName">
-                    Achternaam
-                    <input
+
+                    <Label
+                        htmlFor="firstName"
                         type="text"
-                        name="lastName"
-                        id="lastName"
-                        value={formState.lastName}
+                        name="firstName"
+                        id="firstName"
+                        value={formState.firstName}
                         onChange={handleFormChange}
-                    />
-                </label>
+                    >
+                        Achternaam
+                    </Label>
 
-                <label htmlFor="age">
-                    Leeftijd
-                    <input
+                    <Label
+                        htmlFor="age"
                         type="number"
                         name="age"
                         id="age"
@@ -147,85 +149,88 @@ function App() {
                         min="0"
                         max="120"
                         onChange={handleFormChange}
-                    />
-                </label>
+                    >Leeftijd</Label>
 
-                <label htmlFor="postalCode">
-                    Postcode
-                    <input
+                    <Label
+                        htmlFor="postalCode"
                         type="text"
                         name="postalCode"
                         id="postalCode"
                         value={formState.postalCode}
                         onChange={handleFormChange}
-                    />
-                </label>
+                    >
+                        Postcode
+                    </Label>
 
-                <label htmlFor="frequency" id="frequencyId">
-                    Bezorgfrequentie
-                    <select
-                        name="frequency"
-                        id="frequency">
-                        <option value="iedereWeek" className="option">iedere week</option>
-                        <option value="omDeWeek" className="option">om de week</option>
-                        <option value="maandelijks" className="option">iedere maand</option>
-                        onChange={handleFormChange}
-                    </select>
+
+                    <label htmlFor="frequency" id="frequencyId">
+                        Bezorgfrequentie
+                        <select
+                            name="frequency"
+                            id="frequency">
+                            <option value="iedere week" className="option">iedere week</option>
+                            <option value="om de week" className="option">om de week</option>
+                            <option value="maandelijks" className="option">iedere maand</option>
+                            onChange={handleFormChange}
+                        </select>
+                    </label>
 
                     <div id="radioButtons">
-                        <label htmlFor="day">
-                            <input
-                                type="radio"
-                                name="radio"
-                                value="day"
-                                checked={formState.day}
-                                onChange={handleFormChange}
-                            />Overdag
-                        </label>
-                        <label htmlFor="afternoon">
-                            <input
-                                type="radio"
-                                name="radio"
-                                value="afternoon"
-                                checked={formState.afternoon}
-                                onChange={handleFormChange}
-                            />'s Avonds
-                        </label>
+                        <Label
+                            type="radio"
+                            name="radio"
+                            value="day"
+                            checked={formState.day}
+                            onChange={handleFormChange}
+                            text="overdag"
+                        >
+                        </Label>
+
+                        <Label
+                            type="radio"
+                            name="radio"
+                            value="afternoon"
+                            checked={formState.afternoon}
+                            onChange={handleFormChange}
+                            text="'s avonds"
+                        >
+                        </Label>
                     </div>
-                </label>
 
-                <label htmlFor="comments" id="commentsId">
-                    Opmerking
-                    <textarea
-                        type="text"
-                        name="comments"
-                        id="comments"
-                        rows="4"
-                        cols="70"
-                        value={formState.comments}
-                        onChange={handleFormChange}
-                    ></textarea>
-                </label>
 
-                <label htmlFor="conditions">
-                    <input
+                    <label htmlFor="comments" id="commentsId">
+                        Opmerking
+                        <textarea
+                            type="text"
+                            name="comments"
+                            id="comments"
+                            rows="4"
+                            cols="50"
+                            value={formState.comments}
+                            onChange={handleFormChange}
+                        ></textarea>
+                    </label>
+
+                    <Label
                         type="checkbox"
                         name="conditions"
                         id="conditions"
                         checked={formState.conditions}
                         onChange={handleFormChange}
-                    /> Ik ga akkoord met de voorwaarden
-                </label>
+                        text={"Ik ga akkoord met de voorwaarden"}
+                    >
+                    </Label>
 
-                <Button
-                    id="submitButton"
-                    type="submit"
-                >
-                    Submit
-                </Button>
+                    <Button
+                        id="submitButton"
+                        type="submit"
+                    >
+                        Submit
+                    </Button>
 
 
-            </form>
+                </form>
+            </div>
         </>
     )
         ;
