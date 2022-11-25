@@ -22,6 +22,39 @@ function App() {
         setStrawberry(0);
     }
 
+    // of op een andere manier:
+    // const [Fruit, setFruit] = useState(initial);
+    //
+    // const initial = {
+    //     apple: 0,
+    //     banana: 0,
+    //     kiwi: 0,
+    //     strawberry: 0
+    // }
+    //
+    // function reset(fruitType) {
+    //     setFruit(initial);
+    // }
+    //
+    // function setFruits(fruitType, value) {
+    //     if (Fruit[fruitType] >= 0) {
+    //         setFruit(Fruit =>
+    //             ({...Fruit, [fruitType]: Fruit[fruitType] + value}));
+    //     }
+    // }
+    // return (
+    //     <>
+    //         <h1>Appels</h1>
+    //         <div className="total">
+    //             <Counter
+    //                 type="button"
+    //                 id="counter"
+    //                 onClick={() => setFruits('apple', -1)}
+    //                 disabled={Fruit.apple<=0}
+    //             >
+
+
+
     const [formState, setFormState] = useState({
         firstName: "",
         lastName: "",
